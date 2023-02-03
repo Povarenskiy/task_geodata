@@ -1,0 +1,19 @@
+{% if result %}
+<div class="m-4 mb-2 p-4 bg-white rounded-3">
+    <div class="h4 p-2">Результат</div>
+    <div class="p-2">Затраченное время выполнения: {{ result }} секунд</div>
+</div>
+{% endif %}
+{% if map %}
+<div class="m-4 p-4 bg-white rounded-3">
+    <div class="h4 p-2">Карта</div>
+    {{ map|safe }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="m-4 p-4 bg-white rounded-3">
+    <div class="h4 p-2">Ошибки</div>
+    {{ error }}
+</div>
+{% endif %}
