@@ -9,10 +9,11 @@ def get_map(cadastral_number):
     start = time.time()
 
     # получение географических данных с помощью кадастрового номера
-    area = Area(cadastral_number) 
-    data = json.loads(area.to_geojson_poly())
+    area = Area(cadastral_number).to_geojson_poly() 
     
-    if data:
+    if area:
+        data = json.loads(area)
+        
         # получение центра области для отображения карты
         x = data['properties']['center'].get('x')
         y = data['properties']['center'].get('y')
