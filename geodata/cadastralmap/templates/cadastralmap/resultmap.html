@@ -1,19 +1,32 @@
-{% if result %}
+
+{% if map_data.result %}
 <div class="m-4 mb-2 p-4 bg-white rounded-3">
     <div class="h4 p-2">Результат</div>
-    <div class="p-2">Затраченное время выполнения: {{ result }} секунд</div>
-</div>
-{% endif %}
-{% if map %}
-<div class="m-4 p-4 bg-white rounded-3">
-    <div class="h4 p-2">Карта</div>
-    {{ map|safe }}
+    <div class="p-2">Затраченное время выполнения: {{ map_data.result }} секунд</div>
 </div>
 {% endif %}
 
-{% if error %}
+{% if map_data.map %}
+<div class="m-4 p-4 bg-white rounded-3">
+    <div class="h4 p-2">Карта</div>
+    {{ map_data.map|safe }}
+</div>
+{% endif %}
+
+{% if map_data.error %}
 <div class="m-4 p-4 bg-white rounded-3">
     <div class="h4 p-2">Ошибки</div>
-    {{ error }}
+    {{ map_data.error }}
 </div>
+{% endif %}
+
+{% if form %}
+    {% load crispy_forms_tags %}
+    <div class="m-4 mb-2 p-4 bg-white rounded-3">
+        <form action="{% url 'get_docx' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+        <button class="mt-2 btn btn-primary w-100" type="submit">Собрать файл</button>
+        </form>
+    </div>
 {% endif %}
