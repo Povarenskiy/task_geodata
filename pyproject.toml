@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "task-geodata"
+version = "0.1.0"
+description = ""
+authors = ["Povarenskiy <Povarenskiy.rb@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "task_geodata"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.7"
+folium = "^0.14.0"
+pillow = "9.2.0"
+rosreestr2coord = "^4.1.6"
+python-docx = "^0.8.11"
+django-crispy-forms = "1.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
