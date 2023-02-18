@@ -26,12 +26,12 @@ def get_map(cadastral_number):
         # получение карты для отображения на html странице
         m = folium.Map(location=[y , x], zoom_start=17)
         folium.GeoJson(data, name="geojson").add_to(m)
+        m.save('map.png')
         m=m._repr_html_() 
 
         # запись врекмени выоплнения
         result = time.time() - start
         result = '{:.2e}'.format(result) if result < 1 else round(result, 2)
-        m.save('map.png')
 
         return {'result': result, 'map': m}
     else:
