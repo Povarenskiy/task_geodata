@@ -6,10 +6,10 @@
 </div>
 {% endif %}
 
-{% if map_data.map %}
+{% if map_data.map_html %}
 <div class="m-4 p-4 bg-white rounded-3">
     <div class="h4 p-2">Карта</div>
-    {{ map_data.map|safe }}
+    {{ map_data.map_html|safe }}
 </div>
 {% endif %}
 

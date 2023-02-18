@@ -16,7 +16,7 @@ class CadastralMapView(TemplateView):
     def get_context_data(self, **kwargs):
         cadastral_number = self.request.GET.get('q') 
         map_data = get_map(cadastral_number)
-        form = DocxForm(initial={'cadastral_number': cadastral_number})
+        form = DocxForm(initial={'cadastral_number': cadastral_number, 'folium_map': map_data.get('folium_map')})
         return {'map_data': map_data, 'form': form }
     
 
